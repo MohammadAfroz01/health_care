@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+   {% block "content" %}
+
+<section class="page-title bg-1">
+	<div class="overlay"></div>
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <div class="block text-center">
+			<span class="text-white">Book your Seat</span>
+			<h1 class="text-capitalize mb-5 text-lg">Appointment</h1>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  
+  <section class="appoinment section">
+	<div class="container">
+	  <div class="row">
+		<div class="col-lg-4">
+			<div class="mt-3">
+			  <div class="feature-icon mb-3">
+				<i class="icofont-support text-lg"></i>
+			  </div>
+			   <span class="h3">Call for an Emergency Service!</span>
+				<h2 class="text-color mt-3">+84 789 1256 </h2>
+			</div>
+		</div>
+  
+		<div class="col-lg-8">
+			 <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+			  <h2 class="mb-2 title-color">Book an appoinment</h2>
+			  <p class="mb-4">It looks like the many great matches for your search</p>
+	
+				 <form class="appointment-form" id="Appointment-form" method="post" >
+
+					{% csrf_token %}
+
+                    
+                    
+					<div class="row">
+                        {% for app in my_list %}
+						<div class="doctor-department-info">
+							<span class="doctor-name" style="color: black; font-weight:bold; margin-right: 240px; margin-left:20px" >{{ app.doc_name }}</span>
+							<span class="department-name" style="color: black; font-weight:bold;">{{ app.department_name }}</span>
+						</div>
+						
+                    {% endfor %}
+					
+						   <div class="col-lg-6">
+							  <div class="form-group">
+								  <input name="Date" id="date" type="text" class="form-control" placeholder="YYYY-MM-DD">
+							        
+								</div>
+						  </div>
+
+						  <div class="col-lg-6">
+							  <div class="form-group">
+			
+								<select name="Time" class="form-control " id="exampleFormControlSelect3" placeholder="HH:MM[:ss[.uuuuuu]]-HH:MM[:ss[.uuuuuu]]" >
+									<option>Select  Time</option>
+									<option>10:00 am-11:00 am</option>
+									<option>11:00 am-12:00 am</option>
+									<option>12:00 pm-1:00 pm</option>
+									<option>1:00 pm-2:00 pm</option>
+									<option>3:00 pm-4:00 pm</option>
+									<option>4:00 pm-5:00 pm</option>
+									<option>5:00 pm-6:00 pm</option>
+									<option>6:00 pm-7:00 pm</option>
+									<option>7:00 pm-8:00 pm</option>
+									<option>8:00 pm-9:00 pm</option>
+									<option>9:00 pm-10:00 pm</option>
+									<option>10:00 pm-11:00 pm</option>
+									<option>11:00 pm-12:00 pm</option>
+								</select>	
+
+							  </div>
+						  </div>
+						  &nbsp;
+						  
+  
+						  <div class="col-lg-6">
+							<div class="form-group">
+								<input name="full_name" id="name" type="text" class="form-control" placeholder="Full Name">
+							</div>
+						</div>
+  
+						  <div class="col-lg-6">
+							  <div class="form-group">
+								  <input name="Phone" id="phone" type="Number" class="form-control " placeholder="Phone Number">
+							  </div>
+						  </div>
+					  </div>
+					  <div class="form-group-2 mb-4">
+						  <textarea name="message" id="message" class="form-control " rows="6" placeholder="Your Message"></textarea>
+					  </div>
+  
+                        <a class="successfull" href="Confirmation"> </a>
+					  <input type="submit" class="btn btn-success" value="Make Appoinment "  />
+					
+					 
+					</form>
+					
+			  </div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  
+  {% endblock "content" %}
