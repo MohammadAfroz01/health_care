@@ -23,20 +23,21 @@ environ.Env.read_env()
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^6gv%xipd=^76nek_hz7hv@(dr31+%w!qt=3kywq6j*4o$1t#!'
+# SECRET_KEY = 'django-insecure-^6gv%xipd=^76nek_hz7hv@(dr31+%w!qt=3kywq6j*4o$1t#!'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True
 
 DEBUG = env.bool('DEBUG', default=False)
 SECRET_KEY = env('SECRET_KEY')
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['.vercel.app'])
 
-
+SECRET_KEY = env('SECRET_KEY')
+DEBUG = env.bool('DEBUG', default=False)
 DATABASES = {
-    'default': env.db('DATABASE_URL', default='sqlite:///db.sqlite3'),
+    'default': env.db(),
 }
-
+   
 # Application definition
 
 INSTALLED_APPS = [
