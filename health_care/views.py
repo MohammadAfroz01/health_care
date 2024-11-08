@@ -18,6 +18,23 @@ def homePage(request):
         number = request.POST["phone"]
         msg = request.POST["message"]
         data=List(Departments=department,Doctors=doctor,date=dates,time=time,full_name=name,Phone=number,message=msg)
+
+         # Check if any required field is empty
+        if not all([department, doctor, dates, time, name, number, msg]):
+            messages.error(request, "All fields are required. Please fill in all fields.")
+            return render(request, "index.html", {"all_depart": all_depart})
+
+        # If all fields are filled, save the data
+        data = List(
+            Departments=department,
+            Doctors=doctor,
+            date=dates,
+            time=time,
+            full_name=name,
+            Phone=number,
+            message=msg
+        )
+
         data.save()
 
         return redirect("confirmation")

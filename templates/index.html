@@ -14,7 +14,7 @@
 					
 					<p class="mb-4 pr-5">Wherever the art of medicine is loved, there is also a love for humanity..</p>
 					<div class="btn-container ">
-						<a href="#Appointment-form" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Make appoinment <i class="icofont-simple-right ml-2  "></i></a>
+						<a href="#Appointment-form" target="_blank" class="btn btn-main-2 btn-icon btn-round-full">Make an appoitnment <i class="icofont-simple-right ml-2  "></i></a>
 					</div>
 				</div>
 			</div>
@@ -31,7 +31,7 @@
 							<i class="icofont-surgeon-alt"></i>
 						</div>
 						<span>24 Hours Service</span>
-						<h4 class="mb-3">Online Appoinment</h4>
+						<h4 class="mb-3">Online Appointment</h4>
 						<p class="mb-4">Get ALl time support for emergency.We have introduced the principle of family medicine.</p>
 						<a href="#Appointment-form" class="btn btn-main btn-round-full">Make a appoinment</a>
 					</div>
@@ -55,7 +55,7 @@
 						</div>
 						<span>Emegency Cases</span>
 						<h4 class="mb-3">1-800-700-6200</h4>
-						<p>Get ALl time support for emergency.We have introduced the principle of family medicine.Get Conneted with us for any urgency .</p>
+						<p>Get ALl time support for emergency.We have introduced the principle of family medicine.Get Connected with us for any urgency .</p>
 					</div>
 				</div>
 			</div>
@@ -93,7 +93,7 @@
 	<div class="container">
 		<div class="cta position-relative">
 			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
+				<div class="col-lg-3 col-md-6 col-sm-6 " >
 					<div class="counter-stat">
 						<i class="icofont-doctor"></i>
 						<span class="h3">58</span>k
@@ -133,7 +133,7 @@
 				<div class="section-title">
 					<h2>Award winning patient care</h2>
 					<div class="divider mx-auto my-4"></div>
-					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+					<p style="text-align:center">Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
 				</div>
 			</div>
 		</div>
@@ -237,17 +237,17 @@
 					<div class="row">
                          <div class="col-lg-6">
                             <div class="form-group">
-                                <select class="form-control" id="department_name" name="departments" onchange="selectData()">
+                                <select class="form-control" id="department_name" name="departments" onchange="selectData()" required>
                                   <option>---Select Department---</option>
                                    {% for data in all_depart %}
-								   <option value="{{data.department_name}}">{{data.department_name}}</option>
+								   <option value="{{data.department_name}}">{{data.department_name}} </option>
 								   {% endfor %}
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <select  id="result" class="form-control" name="department_doctor_name">
+                                <select  id="result" class="form-control" name="department_doctor_name" required>
                                   <option selected disabled>---Select Doctors---</option>
                                  
                                 </select>
@@ -256,13 +256,13 @@
 
                          <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="Date" id="date" type="text" class="form-control" placeholder="yyyy/mm/dd">
+                                <input name="Date" id="date" type="text" class="form-control" placeholder="yyyy/mm/dd" required>
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <select name="Time" id="time" type="text" class="form-control" placeholder="Time">
+                                <select name="Time" id="time" type="text" class="form-control" placeholder="Time" required>
 								<option>Select  Time</option>
 									<option>10:00 am-11:00 am</option>
 									<option>11:00 am-12:00 am</option>
@@ -282,18 +282,18 @@
                         </div>
                          <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="full_name" id="name" type="text" class="form-control" placeholder="Full Name">
+                                <input name="full_name" id="name" type="text" class="form-control" placeholder="Full Name" required>
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="phone" id="phone" type="Number" class="form-control" placeholder="Phone Number">
+                                <input name="phone" id="phone" type="Number" class="form-control" placeholder="Phone Number" required>
                             </div>
                         </div>
                     </div>
                     <div class="form-group-2 mb-4">
-                        <textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
+                        <textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message" required></textarea>
                     </div>
 
 					<input type="submit" class="btn btn-success" value="Make Appoinment "  />
@@ -429,7 +429,7 @@
 			<div class="col-lg-7">
 				<div class="section-title text-center">
 					<h2>Partners who support us</h2>
-					<div class="divider mx-auto my-4"></div>
+					<div class="divider mx-auto my-4"  ></div>
 					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
 				</div>
 			</div>
@@ -491,33 +491,7 @@
 		</div>
 	</div>
 </section>
-{% comment %} {% block javascript %}
-      <script>
-		function selectData()
-		{
-		  var subjectId=document.getElementById("department_name").value
 
-		  $.ajax({                       
-			type: "POST",
-			url: 'http://127.0.0.1:8000/get-doctor-department-name-ajax/',
-			data: {
-				'subject_id': subjectId,       // add the country id to the POST parameters
-				'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val(),
-			},
-			success: function (data) {   // `data` is from `get_topics_ajax` view function
-				let html_data = '<option value="">---------</option>';
-				data.forEach(function (data) {
-					html_data += `<option value="${data.doctor_full_name}">${data.doctor_full_name}</option>`
-				});
-				$("#result").html(html_data); // replace the contents of the topic input with the data that came from the server
-			}
-		});
-
-		}  
-	  </script>
-
-
-{% endblock javascript %} {% endcomment %}
 {% block javascript %}
 <script>
     function selectData() 
