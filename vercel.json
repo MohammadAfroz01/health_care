@@ -19,6 +19,8 @@
       {
         "src": "/(.*)",
         "dest": "health_care/wsgi.py"
+        
+        
       }
     ]
   }
