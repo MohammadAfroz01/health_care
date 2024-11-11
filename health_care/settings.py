@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
 environ.Env.read_env() 
-
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -33,7 +33,7 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['.vercel.app'])
 
 SECRET_KEY = env('SECRET_KEY')
 print("SECRET_KEY loaded from .env:", SECRET_KEY)
-DEBUG = env.bool('DEBUG', default=False)
+
 DATABASES = {
     'default': env.db(),
 }
