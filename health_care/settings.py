@@ -29,10 +29,10 @@ environ.Env.read_env()
 # DEBUG = True
 
 DEBUG = env.bool('DEBUG', default=False)
-SECRET_KEY = env('SECRET_KEY')
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['.vercel.app'])
 
 SECRET_KEY = env('SECRET_KEY')
+print("SECRET_KEY loaded from .env:", SECRET_KEY)
 DEBUG = env.bool('DEBUG', default=False)
 DATABASES = {
     'default': env.db(),
