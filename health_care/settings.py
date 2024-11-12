@@ -29,13 +29,14 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # DEBUG = True
 
 DEBUG = env.bool('DEBUG', default=False)
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['.vercel.app'])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['127.0.0.1', 'localhost', '.vercel.app'])
+
 
 SECRET_KEY = env('SECRET_KEY')
 print("SECRET_KEY loaded from .env:", SECRET_KEY)
 
 DATABASES = {
-    'default': env.db(),
+    'default': env.db(default=f'sqlite:///{BASE_DIR / "db.sqlite3"}')
 }
    
 # Application definition
