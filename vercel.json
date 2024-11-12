@@ -19,6 +19,9 @@
       {"src": "/static/(.*)",
         "dest": "/static/$1"
       },
+      {"src": "/media/(.*)",
+        "dest": "/media/$1"
+      },
       {
         "src": "/(.*)",
         "dest": "health_care/wsgi.py"      
